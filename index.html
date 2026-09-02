@@ -57,12 +57,8 @@
             animation: fiestaBg 2s ease infinite alternate;
         }
         @keyframes fiestaBg {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         html {
@@ -110,25 +106,15 @@
             opacity: 0.3;
         }
         @media (max-width: 768px) {
-            .cursor-dot,
-            .cursor-ring {
+            .cursor-dot, .cursor-ring {
                 display: none;
             }
-            body {
-                cursor: auto;
-            }
+            body { cursor: auto; }
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--fondo);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--dorado);
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--fondo); }
+        ::-webkit-scrollbar-thumb { background: var(--dorado); border-radius: 10px; }
 
         #progress-bar {
             position: fixed;
@@ -174,9 +160,7 @@
             opacity: 0.7;
         }
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         #particles-interactive {
@@ -213,6 +197,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+        header .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
         header .logo h1 {
             font-family: 'Playfair Display', serif;
@@ -275,9 +264,7 @@
             flex-direction: column;
             gap: 2rem;
         }
-        .offcanvas.open {
-            right: 0;
-        }
+        .offcanvas.open { right: 0; }
         .offcanvas .close-btn {
             align-self: flex-end;
             background: none;
@@ -413,13 +400,8 @@
             animation: blink 0.8s infinite;
         }
         @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         .hero-content p {
             font-size: 1.2rem;
@@ -558,24 +540,12 @@
         }
 
         @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -653,8 +623,7 @@
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
-        .flip-card-front,
-        .flip-card-back {
+        .flip-card-front, .flip-card-back {
             position: absolute;
             inset: 0;
             border-radius: var(--radius);
@@ -768,15 +737,8 @@
             letter-spacing: 3px;
         }
         @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.8;
-            }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
         }
 
         .galeria-grid {
@@ -867,47 +829,91 @@
             color: var(--dorado);
         }
 
+        /* ===== TESTIMONIOS CORREGIDOS ===== */
         .testimonios-wrapper {
             perspective: 1200px;
             overflow: hidden;
             padding: 2rem 0;
+            position: relative;
         }
+
         .testimonios-track {
             display: flex;
             gap: 2rem;
             transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: transform;
+            align-items: stretch;
         }
+
         .testimonio-card {
             min-width: 320px;
+            max-width: 420px;
+            min-height: 320px;
+            max-height: 420px;
             background: var(--card-bg);
             backdrop-filter: blur(8px);
             border-radius: var(--radius);
-            padding: 2rem;
+            padding: 2rem 1.8rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-glass);
             transform: rotateY(0deg) scale(0.92);
             transition: var(--transition);
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
         }
+
         .testimonio-card.active {
             transform: rotateY(0deg) scale(1);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
+
         .testimonio-card .quote {
-            font-size: 1.1rem;
-            font-style: italic;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            flex: 1;
+            overflow-y: auto;
+            max-height: 200px;
+            min-height: 80px;
+            padding-right: 12px;
+            scrollbar-width: thin;
             color: var(--texto);
+            font-style: italic;
+            text-align: left;
+            word-wrap: break-word;
         }
+
+        .testimonio-card .quote::-webkit-scrollbar {
+            width: 5px;
+        }
+        .testimonio-card .quote::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        .testimonio-card .quote::-webkit-scrollbar-thumb {
+            background: var(--dorado);
+            border-radius: 10px;
+        }
+
         .testimonio-card .author {
             margin-top: 1rem;
             font-weight: 700;
             color: var(--dorado);
+            font-size: 1rem;
+            flex-shrink: 0;
+            padding-top: 0.8rem;
+            border-top: 2px solid rgba(201, 168, 76, 0.2);
         }
+
         .testimonio-card .role {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             opacity: 0.6;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
+
         .testimonios-controls {
             display: flex;
             justify-content: center;
@@ -977,20 +983,14 @@
             opacity: 1;
             visibility: visible;
         }
-        .fb-wa {
-            background: #25D366;
-        }
+        .fb-wa { background: #25D366; }
         .fb-orar {
             background: #8338EC;
             opacity: 0.6;
             cursor: not-allowed;
         }
-        .fb-share {
-            background: #3A86FF;
-        }
-        .fb-fiesta {
-            background: #FF006E;
-        }
+        .fb-share { background: #3A86FF; }
+        .fb-fiesta { background: #FF006E; }
 
         .btn-top {
             position: fixed;
@@ -1088,7 +1088,6 @@
             opacity: 0.5;
         }
 
-        /* ===== FOOTER SIMPLIFICADO ===== */
         footer {
             background: var(--verde-oscuro);
             color: white;
@@ -1132,64 +1131,53 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h2 {
-                font-size: 2.8rem;
-            }
-            .hero-content .lema {
-                font-size: 1.6rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .section-title::after {
-                display: none;
-            }
+            .hero-content h2 { font-size: 2.8rem; }
+            .hero-content .lema { font-size: 1.6rem; }
+            .section-title { font-size: 2rem; }
+            .section-title::after { display: none; }
             .section-title .badge-pendiente {
                 font-size: 0.6rem;
                 padding: 0.1rem 0.8rem;
                 margin-left: 6px;
             }
-            header {
-                padding: 0.6rem 1rem;
-            }
-            .offcanvas {
-                width: 300px;
-                right: -300px;
-            }
-            .counter-item .num {
-                font-size: 2rem;
-            }
-            .galeria-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
+            header { padding: 0.6rem 1rem; }
+            header .logo img { height: 38px; }
+            header .logo h1 { font-size: 1.2rem; }
+            header .logo small { font-size: 0.55rem; }
+            .offcanvas { width: 300px; right: -300px; }
+            .counter-item .num { font-size: 2rem; }
+            .galeria-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+            
+            /* Testimonios responsive */
+            .testimonios-track { gap: 1rem; }
             .testimonio-card {
                 min-width: 260px;
+                max-width: 300px;
+                min-height: 280px;
+                max-height: 380px;
+                padding: 1.5rem 1.2rem;
             }
-            .floating-buttons {
-                right: 0.8rem;
-                bottom: 5rem;
+            .testimonio-card .quote {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                max-height: 160px;
+                min-height: 60px;
+                padding-right: 8px;
             }
-            .floating-buttons .fb-btn {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
+            .testimonio-card .author { font-size: 0.9rem; padding-top: 0.6rem; }
+            .testimonio-card .role { font-size: 0.7rem; }
+            .testimonios-controls button {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
-            .btn-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 48px;
-                height: 48px;
-                font-size: 1.2rem;
-            }
-            .modal-galeria img {
-                max-width: 95%;
-            }
-            .member-counter .number {
-                font-size: 2.5rem;
-            }
-            .member-counter .number.pendiente {
-                font-size: 1.4rem;
-            }
+            
+            .floating-buttons { right: 0.8rem; bottom: 5rem; }
+            .floating-buttons .fb-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+            .btn-top { bottom: 1rem; right: 1rem; width: 48px; height: 48px; font-size: 1.2rem; }
+            .modal-galeria img { max-width: 95%; }
+            .member-counter .number { font-size: 2.5rem; }
+            .member-counter .number.pendiente { font-size: 1.4rem; }
             .notification {
                 top: 70px;
                 right: 10px;
@@ -1197,19 +1185,22 @@
                 max-width: none;
                 font-size: 0.9rem;
             }
-            .btn-lg {
-                padding: 0.8rem 1.5rem;
+            .btn-lg { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .btn .badge-pendiente-btn { font-size: 0.5rem; padding: 0.05rem 0.5rem; }
+            .lectura-wrapper .overlay-pendiente .pendiente-text { font-size: 2.5rem; }
+            .lectura-wrapper .overlay-pendiente .pendiente-sub { font-size: 0.9rem; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .testimonio-card {
+                min-width: 280px;
+                max-width: 360px;
+                min-height: 300px;
+                max-height: 400px;
+            }
+            .testimonio-card .quote {
                 font-size: 0.9rem;
-            }
-            .btn .badge-pendiente-btn {
-                font-size: 0.5rem;
-                padding: 0.05rem 0.5rem;
-            }
-            .lectura-wrapper .overlay-pendiente .pendiente-text {
-                font-size: 2.5rem;
-            }
-            .lectura-wrapper .overlay-pendiente .pendiente-sub {
-                font-size: 0.9rem;
+                max-height: 180px;
             }
         }
     </style>
@@ -1255,32 +1246,29 @@
             <a href="#lectura"><i class="fas fa-book-open"></i> Lectura</a>
             <a href="#galeria"><i class="fas fa-images"></i> Galería</a>
             <a href="#testimonios"><i class="fas fa-comment-dots"></i> Testimonios</a>
-            <!-- CONTACTO ELIMINADO -->
         </nav>
         <div class="lema-off">"Hechos para prosperar"</div>
         <div class="social-off">
             <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <!-- SOLO WHATSAPP EN OFF-CANVAS -->
         </div>
     </div>
 
     <!-- ===== HEADER ===== -->
-<header>
-    <div class="logo">
-        <div style="display:flex; align-items:center; gap:14px;">
-            <!-- LOGO -->
-            <img src="LogoAser.PNG" alt="Logo Tribu de Aser" style="height:50px; width:auto; object-fit:contain;" />
-            <div>
-                <h1>Tribu de <span>Aser</span></h1>
-                <small>Puerta del Cielo El Milagro</small>
+    <header>
+        <div class="logo">
+            <div style="display:flex; align-items:center; gap:14px;">
+                <img src="LogoAser.PNG" alt="Logo Tribu de Aser" style="height:50px; width:auto; object-fit:contain;" />
+                <div>
+                    <h1>Tribu de <span>Aser</span></h1>
+                    <small>Puerta del Cielo El Milagro</small>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="header-actions">
-        <button id="themeToggle"><i class="fas fa-moon"></i></button>
-        <button class="menu-btn" id="openMenu"><i class="fas fa-bars"></i></button>
-    </div>
-</header>
+        <div class="header-actions">
+            <button id="themeToggle"><i class="fas fa-moon"></i></button>
+            <button class="menu-btn" id="openMenu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="inicio">
@@ -1297,8 +1285,7 @@
                 </button>
             </div>
 
-<div class="lema" id="typingText">"Hechos para prosperar"<span class="typing-cursor"></span></div>
-
+            <div class="lema" id="typingText">"Hechos para prosperar"<span class="typing-cursor"></span></div>
 
             <div class="counter-wrap">
                 <div class="counter-item"><div class="num" id="dias">00</div><div class="label">Días</div></div>
@@ -1410,50 +1397,59 @@
             </div>
         </section>
     </div>
-<!-- ===== LECTURA BÍBLICA CON OVERLAY PENDIENTE ===== -->
+
+<!-- ===== LECTURA BÍBLICA ===== -->
 <div class="container" id="lectura">
     <section class="reveal">
         <h2 class="section-title">
-            <i class="fas fa-book-open"></i> Lectura Bíblica
+            <i class="fas fa-book-open"></i> Plan de Lectura
         </h2>
         <div class="lectura-wrapper">
-            <!-- ===== GALERÍA DE IMÁGENES ===== -->
             <div class="lectura-card" style="padding:0.5rem; background:transparent; backdrop-filter:none; border:none; box-shadow:none; filter:none; opacity:1;">
                 <div class="galeria-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:0.8rem;">
                     
-                    <!-- IMAGEN 1 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER1.jpeg" alt="Imagen bíblica 1" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
-                    <!-- IMAGEN 2 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER2.jpeg" alt="Imagen bíblica 2" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
-                    <!-- IMAGEN 3 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER3.jpeg" alt="Imagen bíblica 3" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
-                    <!-- IMAGEN 4 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER4.jpeg" alt="Imagen bíblica 4" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
-                    <!-- IMAGEN 5 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER5.jpeg" alt="Imagen bíblica 5" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
-                    <!-- IMAGEN 6 -->
                     <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
                         <img src="LecturaASER6.jpeg" alt="Imagen bíblica 6" style="width:100%; height:100%; object-fit:cover;" />
+                    </div>
+
+                    <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
+                        <img src="LecturaASER7.jpeg" alt="Imagen bíblica 7" style="width:100%; height:100%; object-fit:cover;" />
+                    </div>
+
+                    <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
+                        <img src="LecturaASER8.jpeg" alt="Imagen bíblica 8" style="width:100%; height:100%; object-fit:cover;" />
+                    </div>
+
+                    <div class="g-item" style="aspect-ratio:1/1; border-radius:12px; overflow:hidden;">
+                        <img src="LecturaASER9.jpeg" alt="Imagen bíblica 9" style="width:100%; height:100%; object-fit:cover;" />
                     </div>
                     
                 </div>
             </div>
+        </div>
+    </section>
 </div>
+
     <!-- ===== GALERÍA ===== -->
     <div class="container" id="galeria">
         <section class="reveal">
@@ -1478,35 +1474,259 @@
         <img id="modalImg" src="" alt="Imagen ampliada" />
     </div>
 
-<!-- ===== TESTIMONIOS ===== -->
-<div class="container" id="testimonios">
-    <section class="reveal">
-        <h2 class="section-title"><i class="fas fa-comment-dots"></i> Testimonios</h2>
-        <div class="testimonios-wrapper">
-            <div class="testimonios-track" id="testimoniosTrack">
+    <!-- ===== TESTIMONIOS ===== -->
+    <div class="container" id="testimonios">
+        <section class="reveal">
+            <h2 class="section-title"><i class="fas fa-comment-dots"></i> Testimonios</h2>
+            <div class="testimonios-wrapper">
+                <div class="testimonios-track" id="testimoniosTrack">
 
-                <!-- TESTIMONIO 1: OMAR (largo) -->
-                <div class="testimonio-card active">
-                    <div class="quote">
-                        "¿Quieres conocer a cerca de las vidas que Dios cambió en este lugar de refugio que Dios nos ha dado a cada uno de nosotros?"
+                    <div class="testimonio-card active">
+                        <div class="quote">
+                            “Cuando conocí a Dios fue por medio de una escuelita de vacaciones, y desde ahí Dios puso sus ojos en mí y comenzó a obrar en mi vida. Poco a poco, Dios se fue revelando y enseñándome más. Aproximadamente dos años después de estar en la iglesia, ya más sometido en el ministerio, comenzaron a levantarse pruebas en mi vida, y el diablo empezó a meter pensamientos en mi mente, los cuales hicieron que mi voluntad de seguir en los caminos de Dios se apagara. Pero Dios permitió que me fuera para mostrarme verdaderamente lo que era estar en el mundo sin Él. Poco a poco llegué a sentir lo mismo de antes: una extrema soledad por situaciones familiares y enfrentar la muerte. Después de un tiempo, Dios vino a mi vida nuevamente para recordarme que Él me había sacado de ese mundo y que podía hacerlo nuevamente. Fue un largo proceso, pero Dios lo hizo. Ahora le sirvo otra vez porque me demostró que con Él nada me falta, y Él es la vida eterna.”
+                        </div>
+                        <div class="author">— Omar Palacios S.</div>
+                        <div class="role">Integrante Escuela bíblica PDC el Milagro</div>
                     </div>
-                    <div class="author">— Omar Palacios S.</div>
-                    <div class="role">Integrante Escuela bíblica PDC el Milagro (Próximamente) </div>
+
+                    <div class="testimonio-card">
+                        <div class="quote">
+                            “De lo vil y menospreciado me rescató el Señor. Desde pequeño crecí en una iglesia cristiana evangélica y fui instruido en las cosas del Señor. Con el tiempo llegaron muchas situaciones y problemas a mi vida que dejaron vacíos en mi corazón. En vez de permitir que el Señor llenara ese vacío, yo buscaba amigos para distraerme y no pensar en esas cosas. Cuando estuve en la High School (básicos), empecé a juntarme con malas amistades. Primero eran risas y chistes, pero terminó siendo drogas y alcohol. A mí me gustaba mucho la escuela y la ciencia, y aprendí a cultivar marihuana. Ya cultivando, me empezaron a involucrar para sembrar para una pandilla. Empecé a distribuir en todos lados, en diferentes ciudades. Caí en el vicio, en la drogadicción, y me aparté de los caminos del Señor por no saber llenar el vacío que tenía en el corazón. Pasaron los años, entre la fama, la gloria, el dinero y la popularidad. Dios me hablaba constantemente; mis padres oraban por mi vida, pidiendo que el Señor tuviera misericordia. Dios me llamaba y me hablaba por medio de diferentes personas, pero yo no quise hacer caso. Un 24 de diciembre, mientras llovía y las carreteras estaban mojadas, me entró un espíritu de muerte: quería terminar con mi vida. Iba a más de 100 millas por hora cuando pasé sobre un charco de agua y perdí el control del volante. Empecé a dar vueltas sin parar. En medio de esas vueltas solo dije: “Señor, ten misericordia de mí.” Me estrellé y ese día sufrí una contusión y caí en coma. El Señor me había preservado la vida. Después de tantos llamados, Él volvió a llamarme con cuerdas de amor. Yo sabía que era hora de regresar a casa. Al poco tiempo Dios me dio el privilegio de regresar a Guatemala después de 13 años y enamorarme nuevamente del Señor. De lo vil y menospreciado nos ha sacado Dios. Le doy gracias a Dios por la misericordia que tuvo de mí: tengo cicatrices por todos lados, no tengo un diente… pero tengo vida, y vida en abundancia. Dios me llamó y ahora le sirvo con todo mi corazón y con profundo agradecimiento. Nunca pensé que el Señor me tomaría en cuenta. Su misericordia, su amor incondicional y ese hermoso sacrificio en la cruz del Calvario perdonaron todo mi pecado. Si siete veces cae el justo, siete veces lo levantará el Señor. Si hubiéremos pecado, abogado tenemos para con el Padre: a Jesucristo el justo. No importa cuántas veces falles; si estás alejado, no importa todo eso: el Señor te ama con amor eterno y te invita a regresar a casa."
+                        </div>
+                        <div class="author">— Samuel Macario G.</div>
+                        <div class="role">Integrante Escuela bíblica PDC el Milagro</div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="quote">
+                            "Te quiero contar mi historia, y empieza así:
+
+A los 12 años, a esa edad, yo ya me empecé a juntar con personas que tenían vicios. Yo empecé probando un cigarro. Pasé un mes fumando a diario; la verdad, no me gustó. Al mes me encontré con una persona de estas con las que nos reuníamos. Venía fumando y le digo:
+
+—¿Qué fumas?
+
+Y me dice:
+
+—Marihuana.
+
+Yo, en mi curiosidad, le digo:
+
+—Dame.
+
+Y me dio. Me empezó a decir cómo debía fumar y, desde ese entonces, a mí me gustó fumar marihuana.
+
+Al pasar los días, empecé a tomar. Recuerdo que la primera vez que me puse bolo me tomé tres cervezas. Como no estaba acostumbrado a tener alcohol en mi cuerpo, con esas tres fueron más que suficientes para que yo perdiera el control. Y desde ese entonces, mi vida cambió y se empezó a llenar de vicios y vicios.
+
+Empecé a consumir cocaína y el famoso crack. Todas las tardes nos reuníamos en diferentes casas abandonadas para hacer relajo.
+
+Pasaron los años. Llegué a la edad de 19 años y yo traté de rehabilitarme buscando de Dios. Duré un período de un año sobrio, libre de todo, y al pasar ese tiempo volví a caer.
+
+Recuerdo que yo, sabiendo que hacía cosas malas, le dije a Dios en mis oraciones:
+
+“Señor, si al llegar a la edad de 20 años yo sigo pecando y no haciendo tu obra, recógeme, llévame contigo, porque yo ya no quiero pecar”.
+
+Pero como Dios es misericordioso, al llegar a los 20 años caí preso. No me morí. Dios me fue a guardar a ese lugar para hacer conciencia en mí y para que yo regresara a sus caminos.
+
+Recuerdo ese día, miércoles 25 de octubre del año 2017. El reloj marcaba las 5 de la tarde. Yo andaba con un grupo en zona 10 tomando. Recuerdo que salimos del lugar y dijimos:
+
+—¿Para dónde agarramos?
+
+—Vamos a zona 1 —dijeron.
+
+—Pidamos un carro que nos lleve.
+
+—No, dijeron, vámonos caminando.
+
+Y ahí veníamos, en todo el camino molestando, hasta que uno dijo:
+
+—¿Y si nos vamos asaltando a las personas?
+
+Y así veníamos. En un asalto que hicimos, no nos percatamos de que teníamos a unos policías atrás. Cuando nos dimos cuenta, ya era demasiado tarde. Yo estaba bien bolo, que ni tiempo me dio de reaccionar y tratar de huir.
+
+Cuando los policías me enchacharon, estábamos solos y poco a poco se empezaron a aglomerar las personas. Yo empecé a oír que la gente empezó a decir:
+
+—¡Hay que quemarlos! ¡Quemémoslos!
+
+Y en ese ratito vinieron a mi mente muchos recuerdos. Aquellos pensamientos: “Aquí me voy a quedar. Aquí me voy a morir”.
+
+Y aquel cargo de conciencia de por qué lo había hecho.
+
+En eso, entonces, escucho a uno de los policías, que era el comisario, que dijo:
+
+—Métanlos a la patrulla y llévenlos a Torre de Tribunales de una vez para que no tengamos problemas.
+
+Nos llevaron a zona 1. Me empezaron a tomar datos y nos ficharon. Esperamos turno para que el juez nos atendiera.
+
+Llegó el momento. Subimos y nos leyó el motivo de nuestra detención. En una oportunidad que tuve, intenté sobornarlo y me dijo:
+
+—Yo te dejaría ir, mijo, sin cobrarte nada, pero tenés parte pendiente y por ellos, que pusieron la denuncia, no puedo hacerlo.
+
+Subimos nuevamente a audiencia y ahí nos dijeron que íbamos para zona 18, al preventivo, que estaríamos ahí por tres meses y medio de investigación.
+
+Llegamos a ese lugar. Esperamos a que nos metieran a nuestro sector. Yo iba con aquel miedo, aquel temor de que me hicieran daño. Y dentro de mi mente le pedía perdón a Dios y, al mismo tiempo, le pedía que no me fuera a pasar nada.
+
+Llegué a mi sector. Me dicen:
+
+—¿Venís golpeado?
+
+Yo les digo:
+
+—Gracias a Dios, no.
+
+Y me dicen:
+
+—Pues aquí sí te vamos a golpear.
+
+Y gracias a Dios solo estaban bromeando, jajaja. ¡Qué alivio sentí!
+
+Cuando vi que no me preguntaron: “¿Vas a arreglar o vas a hacer talacha?”, les dije:
+
+—Voy a arreglar.
+
+Entonces:
+
+—Pasate para allá.
+
+Y ahí estaba. “Cuando paguen por vos, te llevamos con los demás”.
+
+Y así fue. Se pagó y ya estaba adentro con todos los demás.
+
+Yo entré en un estado de depresión. Me estaba enfermando. Me hice de amigos ahí adentro y uno me dice:
+
+—Dejá de pensar en las personas de allá afuera. Ellos llevan su vida normal. Allá afuera ellos están bien. Están tristes por vos, sí, pero están bien. Preocupate por vos, que estás aquí adentro. Si te ponés malo, ¿quién por vos aquí?
+
+Y así fue. Me acostumbré a la vida de ahí y fueron pasando los días.
+
+Ya se acercaba Navidad y me dicen:
+
+—Aquí se pone alegre esto.
+
+Yo no creía, hasta que llegó el 24. Eso era una fiesta. Estaba todo el lugar adornado. El dueño del sector mandó hacer carne asada para darnos de cenar y así la pasamos. Había música que hasta las 5 de la mañana fue quitada. Todos amanecimos ahí, vaya que vaya de molestar.
+
+Era mi primera Navidad y la pasé bolo y drogado. Y así fue el 31: igual, otra gran fiesta.
+
+Y así fue pasando el tiempo. Empecé a subir a audiencia y, conforme mi caso avanzaba, me sentenciaron a 7 años de prisión inconmutables.
+
+Pasaron los días y viví los momentos más feos de la cárcel: los famosos motines.
+
+Era un día de visita. Yo estaba entrando a mi sector cuando oí que pasaron gritando:
+
+—¡Vivos, porque reventó esto! ¡Hay motín!
+
+Me pongo los tenis y me acerco a la puerta. Empiezo a oír los disparos por aquí, por allá. Empiezo a oír que los presos a los que habían herido empiezan a gritar pidiendo ayuda.
+
+Duró como unas cuatro horas ese motín. Llegan los policías y empieza el intercambio de disparos hasta que lograron retomar el control.
+
+Es duro ver este tipo de cosas.
+
+A los días, me mandó a llamar mi licenciado y me dijo:
+
+—Es la última vez que te veo. ¿Qué querés que haga por vos?
+
+Yo le dije:
+
+—Pida mi traslado para Pavón.
+
+Y así fue.
+
+Yo oía que mucha gente decía, y me decían:
+
+“Allá en la granja la vida es mejor”.
+
+Y un 17 de julio del 2019 llegó mi traslado.
+
+Acababa de pasar la hora del desayuno. Era como a las 9:30. Llega un colaborador y me iba a llamar:
+
+—¡Garfield! Salí de donde estás.
+
+Y le digo:
+
+—¿Qué onda?
+
+Y me dijo:
+
+—Vos te llamás Ronaldo Martínez, ¿verdad?
+
+Yo le digo:
+
+—Sí.
+
+—Agarrá tus cosas. Vas de traslado.
+
+Yo estaba nervioso, pero a la misma vez con miedo otra vez, de nuevo a otro lugar.
+
+Me sacaron del preventivo y me llevaron a Pavón.
+
+Llegamos a este lugar. Estábamos en la dirección y, como a las 2 de la mañana, nos llevaron a nuestro sector. A mí me llevaron a las 4B.
+
+Entré. Me llevaron a presentarme con el dueño del sector. Solo dijo:
+
+—Llévalo allá atrás, que suba a la tarima. Deciles que le den un espacio ahí donde dormir.
+
+Llegué. Estaban unos despiertos todavía. Me acosté y me dijeron:
+
+—¿De dónde venís?
+
+Les digo:
+
+—Del preventivo.
+
+Me dicen:
+
+—¿Fumás?
+
+Y yo:
+
+—Sí.
+
+Y nos empezamos a drogar ahí.
+
+Al día siguiente me sacan a conocer. Ahí fui a recorrer todo. Ya me encontré con las personas que yo conocía. Ya llamé a mi familia y me logré comunicar con ellos.
+
+Pasaron los días. Viví varios motines ahí en ese penal, peleas, requisas, pero siempre Dios guardándome.
+
+Pasó el tiempo y, por buena conducta, obtuve la reducción de pena y salí a los 3 años y 8 meses.
+
+Recuerdo que fue un 25 de junio del 2021 que recobré mi libertad. A las 7 de la noche nos sacaron.
+
+Mi mente se había llenado de odio y rencor. Mis pensamientos eran salir y hacer lo malo, morir haciendo lo malo.
+
+Pero ese día que salí, al cruzar el primer portón y ver el cielo desde afuera, mi vida dio un giro de 360 grados. Todos esos pensamientos se me quitaron.
+
+Al día siguiente vi a mis hermanos. Fue una alegría poder verlos. Luego llegué a San Marcos con mis padres. Allá estuve un tiempo. Luego regresé al Milagro.
+
+Empecé a congregarme en la iglesia y mi vida ha sido diferente.
+
+El buscar de Dios me hizo ser diferente. Se fueron los vicios. Las cadenas que me tenían atado fueron rotas y yo fui libre del enemigo.
+
+Y hoy, a la fecha, puedo decir y confesar que he ganado la batalla, que ya no soy más un esclavo de Satanás."
+
+                        </div>
+                        <div class="author">— Ronaldo Martinez.</div>
+                        <div class="role">Diacono iglesia Puerta del Cielo El Milagro</div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="quote">
+                            “Tuve un proceso muy difícil, crecí en un hogar cristiano pero en pandemia me aleje, tuve problemas en mi hogar, por problemas entre mis padres fue muy difícil el ver como mi familia se alejaba de Dios y todo cambia fue un golpe muy duro, mi corazón se lleno de reclamos hacia Dios, tenía un corazón muy duro y rencor en él, estaba amargada, regrese a los brazos de Dios gracias a una escuelita de vacaciones, después de años, hasta día de hoy Dios sigue moldeando mi corazón y trabajando en mi vida, gracias a él estoy bien y por su gracia es que hoy estoy sirviéndole con todo el corazón, es muy difícil vivir el proceso, no entendemos el propósito que él tiene para nuestra vida, cuando nos entregamos él hace cosas maravillosas en nuestra vida y entendí que no hay cosa mejor que estar con él. DIOS TE BENDIGA.”
+                        </div>
+                        <div class="author">— Melany Hernández</div>
+                        <div class="role">Integrante Sociedad de Jóvenes Jehová Jireh Puerta del Cielo el Milagro</div>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <div class="testimonios-controls">
-            <button id="testPrev"><i class="fas fa-chevron-left"></i></button>
-            <button id="testNext"><i class="fas fa-chevron-right"></i></button>
-        </div>
+            <div class="testimonios-controls">
+                <button id="testPrev"><i class="fas fa-chevron-left"></i></button>
+                <button id="testNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
 
-        <div style="text-align:center; margin-top:1.5rem;">
-            <button class="btn btn-primary btn-sm" id="btnTestimonio"><i class="fas fa-plus-circle"></i> Compartir tu testimonio</button>
-        </div>
-    </section>
-</div>
+            <div style="text-align:center; margin-top:1.5rem;">
+                <button class="btn btn-primary btn-sm" id="btnTestimonio"><i class="fas fa-plus-circle"></i> Compartir tu testimonio</button>
+            </div>
+        </section>
+    </div>
 
     <!-- ===== BOTONES FLOTANTES ===== -->
     <div class="floating-buttons">
@@ -1531,7 +1751,7 @@
     <!-- ===== BOTÓN SUBIR ===== -->
     <button class="btn-top" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- ===== FOOTER SIMPLIFICADO ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <p style="font-size:1.1rem;">Tribu de Aser — <strong style="color:var(--dorado);">"Hechos para prosperar"</strong></p>
         <a href="https://wa.me/50259231912" class="footer-wa" target="_blank">
@@ -1553,7 +1773,6 @@
             }, 2500);
         });
 
-        // ===== NOTIFICACIÓN =====
         document.getElementById('notifClose').addEventListener('click', function() {
             document.getElementById('notification').classList.remove('show');
         });
@@ -1565,8 +1784,7 @@
             let w, h;
             const particles = [];
             const count = 70;
-            let mouseX = -9999,
-                mouseY = -9999;
+            let mouseX = -9999, mouseY = -9999;
 
             function resize() {
                 w = window.innerWidth;
@@ -1681,10 +1899,8 @@
         (function customCursor() {
             const dot = document.getElementById('cursorDot');
             const ring = document.getElementById('cursorRing');
-            let mouseX = 0,
-                mouseY = 0;
-            let ringX = 0,
-                ringY = 0;
+            let mouseX = 0, mouseY = 0;
+            let ringX = 0, ringY = 0;
 
             document.addEventListener('mousemove', function(e) {
                 mouseX = e.clientX;
@@ -1702,7 +1918,7 @@
             }
             animateRing();
 
-            const interactives = document.querySelectorAll('a, button, .btn, .flip-card, .g-item, .lectura-item');
+            const interactives = document.querySelectorAll('a, button, .btn, .flip-card, .g-item');
             interactives.forEach(el => {
                 el.addEventListener('mouseenter', () => ring.classList.add('hover'));
                 el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
@@ -1731,7 +1947,6 @@
             }
         });
 
-        // ===== BOTÓN SUBIR =====
         document.getElementById('btnTop').addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -1824,7 +2039,7 @@
             }
         });
 
-        // ===== TESTIMONIOS =====
+        // ===== TESTIMONIOS CARRUSEL =====
         (function testimonialCarousel() {
             const track = document.getElementById('testimoniosTrack');
             const cards = track.querySelectorAll('.testimonio-card');
@@ -1872,7 +2087,6 @@
 
         // ===== BOTONES ESPECIALES =====
 
-        // Botón Orar (deshabilitado - pendiente)
         document.getElementById('btnOrar').addEventListener('click', function(e) {
             e.preventDefault();
             alert('🚧 Esta función está en desarrollo. Pronto podrás enviar tus peticiones de oración. ¡Gracias por tu paciencia! 🙏');
@@ -1882,21 +2096,10 @@
             alert('🚧 Esta función está en desarrollo. Pronto podrás enviar tus peticiones de oración. ¡Gracias por tu paciencia! 🙏');
         });
 
-        // WhatsApp
         document.getElementById('fbWa').addEventListener('click', function() {
             window.open('https://wa.me/50259231912', '_blank');
         });
 
-        // Asistencia
-        document.getElementById('btnAsistencia').addEventListener('click', function() {
-            alert('✅ ¡Asistencia registrada! Dios te bendiga.');
-        });
-
-        document.getElementById('btnAsistenciaActividad').addEventListener('click', function() {
-            alert('✅ ¡Asistencia registrada! Nos vemos en la actividad.');
-        });
-
-        // Compartir
         document.getElementById('btnCompartir').addEventListener('click', function() {
             if (navigator.share) {
                 navigator.share({
@@ -1923,7 +2126,6 @@
             }
         });
 
-        // Modo fiesta
         let fiestaActive = false;
         document.getElementById('btnFiesta').addEventListener('click', function() {
             document.documentElement.classList.toggle('fiesta');
@@ -1945,44 +2147,27 @@
             }
         });
 
-        // Recordatorio
         document.getElementById('btnRecordatorio').addEventListener('click', function() {
             alert('🔔 Te recordaremos 1 hora antes de las actividades. (Próximamente)');
         });
 
-        // Agregar a calendario
         document.getElementById('btnAgregarCalendario').addEventListener('click', function() {
             const event = {
                 title: 'Tribu de Aser - Culto',
-                start: '2026-08-14T19:00:00',
-                end: '2026-08-14T21:00:00'
+                start: '2026-09-04T19:00:00',
+                end: '2026-09-04T21:00:00'
             };
-            const url =
-                `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start.replace(/[-:]/g, '')}/${event.end.replace(/[-:]/g, '')}`;
+            const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start.replace(/[-:]/g, '')}/${event.end.replace(/[-:]/g, '')}`;
             window.open(url, '_blank');
         });
 
-        // Ver todas las fotos
         document.getElementById('btnVerTodo').addEventListener('click', function() {
             document.querySelector('.galeria-grid').scrollIntoView({ behavior: 'smooth' });
-            document.querySelector('.galeria-grid').style.animation = 'none';
-            setTimeout(() => {
-                document.querySelector('.galeria-grid').style.animation = '';
-            }, 10);
         });
 
-        // Compartir testimonio
         document.getElementById('btnTestimonio').addEventListener('click', function() {
-            const msg = encodeURIComponent(
-                'Quiero compartir mi testimonio con la Tribu de Aser 🙌\n\nMi nombre: \nMi testimonio: \n\n"Hechos para prosperar"');
+            const msg = encodeURIComponent('Quiero compartir mi testimonio con la Tribu de Aser 🙌\n\nMi nombre: \nMi testimonio: \n\n"Hechos para prosperar"');
             window.open(`https://wa.me/50259231912?text=${msg}`, '_blank');
-        });
-
-        // QR
-        document.getElementById('btnQR').addEventListener('click', function() {
-            alert(
-                '📱 Escanea este código QR para acceder a la página:\n\n(Próximamente generarás un QR real. Por ahora, visita: ' +
-                window.location.href + ')');
         });
 
         // ===== EFECTO DE PARTÍCULAS AL HACER CLIC =====
@@ -1991,20 +2176,20 @@
             for (let i = 0; i < 12; i++) {
                 const particle = document.createElement('div');
                 particle.style.cssText = `
-                            position: fixed;
-                            left: ${e.clientX}px;
-                            top: ${e.clientY}px;
-                            width: ${Math.random() * 8 + 4}px;
-                            height: ${Math.random() * 8 + 4}px;
-                            background: ${colors[Math.floor(Math.random() * colors.length)]};
-                            border-radius: 50%;
-                            pointer-events: none;
-                            z-index: 9999;
-                            transform: translate(-50%, -50%);
-                            animation: particleBurst ${Math.random() * 0.6 + 0.4}s ease-out forwards;
-                            --tx: ${(Math.random() - 0.5) * 200}px;
-                            --ty: ${(Math.random() - 0.5) * 200 - 50}px;
-                        `;
+                    position: fixed;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    width: ${Math.random() * 8 + 4}px;
+                    height: ${Math.random() * 8 + 4}px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    transform: translate(-50%, -50%);
+                    animation: particleBurst ${Math.random() * 0.6 + 0.4}s ease-out forwards;
+                    --tx: ${(Math.random() - 0.5) * 200}px;
+                    --ty: ${(Math.random() - 0.5) * 200 - 50}px;
+                `;
                 document.body.appendChild(particle);
                 setTimeout(() => particle.remove(), 1000);
             }
@@ -2012,11 +2197,11 @@
 
         const styleSheet = document.createElement("style");
         styleSheet.textContent = `
-                    @keyframes particleBurst {
-                        0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-                        100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
-                    }
-                `;
+            @keyframes particleBurst {
+                0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
+            }
+        `;
         document.head.appendChild(styleSheet);
     </script>
 
